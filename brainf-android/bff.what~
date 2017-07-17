@@ -1,0 +1,14 @@
+class hello{
+
+	public static void main(String[] args) {
+	String code;
+	char[] memory;
+	int p, q;
+	System.in.scanln(code);
+	if(code.charAt(p) == '+')
+	
+	System.out.print("Hai!\n");
+	System.out.println("");
+	}
+
+}
