@@ -21,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
 	private ActivityMainBinding binding;
 
 	//The code from input.
-	String code;
+	private String code;
 	//size of interpreting memory.
 	public static final int memorySize=3000;
 	//Memory of system for interpreting.
-	private byte memory[memorySize];
+	private byte[] memory = new byte[memorySize];
+	//the command.
 	private char statement;
 	//code pointer.
 	private int p;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 	//size of block stack.
 	public static final int blockStack_size=100;
 	//a stack that block opens' ([) positions are stored.
-	private int blockStack[blockStack_size];
+	private int[] blockStack = new int[blockStack_size]; 
 	//number of items in stack(that make sence!).
 	private int blockStack_last=0;
 	
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 			public void onClick(View view) {
         		      
 				//code input.
-				code = binding.editText.getText().toString()//TODO
+				code = binding.editText.getText().toString();//TODO
 				//size of code.
 				codeSize=code.length();
 				//interpreting part.
@@ -82,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 					{
 						//push a char to output.TODO
 					binding.infoTextView.setText(binding.infoTextView.getText().toString()+memory[q]);
-						System.out.print(memory[q]);//temporary
 					}
 					//," get value of memory block as an ASCII character.
 					else if(statement == ',')
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 						//otherwise get out of block.
 						else
 						{
-							private int z=1;
+							int z=1;
 							while(z > 0)
 							{
 								p++;
@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 									z--;
 							}
 						}
+					}
 					//code block end.
 					else if(statement == ']')
 					{
